@@ -1,0 +1,9 @@
+timestamp,store_name,customer_name,total_price,payment_method,card_number
+25/08/2021 09:00,Chesterfield,Richard Copeland,5.2,CARD,5494173772652516
+25/08/2021 09:02,Chesterfield,Scott Owens,17.3,CARD,6844802140812058
+25/08/2021 09:04,Chesterfield,Francis Strayhorn,4.6,CARD,9.55710412818248E+015
+25/08/2021 09:06,Chesterfield,Rodney Drake,5,CARD,2978328181139200
+25/08/2021 09:08,Chesterfield,Michael Sparrow,4.6,CASH,
+25/08/2021 09:10,Chesterfield,Thomas Register,12.95,CASH,
+25/08/2021 09:12,Chesterfield,James Petrick,17.4,CARD,5309043196155793
+25/08/2021 09:14,Chesterfield,Ronald Hagy,13.55,CARD,1166596230622281
