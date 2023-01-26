@@ -1,7 +1,7 @@
-
 import pandas as pd
 import redshift_connector
 
+from products import all_product_dict
 from src.connecting import connecting_to_db
 from src.queries_create_tables import query_payment
 from src.queries_create_tables import query_products
@@ -11,7 +11,6 @@ from src.queries_create_tables import query_transactions
 from transform import bucket_name
 from transform import get_values_already_present
 from transform import process_file_for_loading
-from products import all_product_dict
 
 
 connection_details = {
@@ -19,7 +18,7 @@ connection_details = {
     "user": "NAME OF YOUR USER",
     "password": "YOURPASSWORD",
     "host": "YOURHOST",
-    "port": "YOURPORT"
+    "port": "YOURPORT",
 }
 
 
@@ -29,14 +28,12 @@ def handler(event, context):
     def main():
         cursor = connecting_to_db.cursor()
 
-        #CREATING TABLES
+        # CREATING TABLES
         run_query(cursor, query_store)
         run_query(cursor, query_payment)
         run_query(cursor, query_products)
         run_query(cursor, query_transactions)
         run_query(cursor, query_sales)
-
-
 
         products_df = pd.DataFrame(
             all_product_dict.items(), columns=["product_name", "price"]

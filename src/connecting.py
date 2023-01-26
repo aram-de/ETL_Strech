@@ -23,7 +23,7 @@ connection_details = {
     "user": "NAME OF YOUR USER",
     "password": "YOURPASSWORD",
     "host": "YOURHOST",
-    "port": "YOURPORT"
+    "port": "YOURPORT",
 }
 
 connecting_to_db = connect_to_database(connection_details)

@@ -1,4 +1,3 @@
-
 import boto3
 import pandas as pd
 
@@ -12,10 +11,8 @@ connection_details = {
     "user": "NAME OF YOUR USER",
     "password": "YOURPASSWORD",
     "host": "YOURHOST",
-    "port": "YOURPORT"
+    "port": "YOURPORT",
 }
-
-
 
 
 def remove_columns_from_df(

@@ -27,7 +27,7 @@ This project was a team project part of the Generation UK & Ireland Data Enginee
 
 By the end of the project there were several stretch goals that we did not achieve, so my plan is to work on on the project to improve my skills and achieve those stretch goals.
 
-The idea is to create an automate ETL pipeline for a caffe franchine that generates a daily CSV with their sales data for each franchise and stores in a local database. 
+The idea is to create an automate ETL pipeline for a caffe franchine that generates a daily CSV with their sales data for each franchise and stores in a local database.
 
 The pipeline is intented to be a convenient method of collating and querying data from all outlets. So that they can make data informed decisions about attracting customers and identify sales trends across all outlets.
 
@@ -41,7 +41,7 @@ The targets for the project are:
   - When is the ‘rush hour’ of the business?
   - Which payment type is more popular by store?
   - Does price influence popularity (if at all?)
-  - Are people mostly buying one item or multiple in a single transaction? 
+  - Are people mostly buying one item or multiple in a single transaction?
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -59,10 +59,10 @@ My intention is to expand the project to achived the following (effectively my T
 
 
   - Use of Cloudformation and Github to create a CI/CD pipeline
-  - Use of SQS to create a queue 
+  - Use of SQS to create a queue
   - Use 2 lambdas, one to extract and transform and the second to do the loading.
   - Use a second S3 bucket to store transformed CSV files that can then be copied to Redshit (much faster than inserting from dataframes)
-  
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -73,7 +73,7 @@ In the group project, we first needed took a look at a CSV from the company to d
 ##### **Note:** asterisk(*) = primary key; *italics* = foreign key
 
 
-- **Transactions** 
+- **Transactions**
   | transaction_id* | timestamp | *store_id* | total_price | *payment_method_id*
   | ----------- | ----------- |----------- | ----------- |----------- |
   | 1 | 25/08/2021 09:00:00 | 1 |  2.45| 1 |
@@ -93,7 +93,7 @@ In the group project, we first needed took a look at a CSV from the company to d
   | ----------- | ----------- | ----------- |
   | 1 | Regular Latte | 2.45|
   | 2 | Large Flavoured Latte - Hazelnut | 2.75|
-- **Sales** 
+- **Sales**
   | sales_id* | *transaction_id* | *product_id* |
   | ----------- | ----------- | ----------- |
   | 1 | 1 | 1|
@@ -104,7 +104,7 @@ We discussed breaking down the products table further, into separate size, type 
 
 For a full breakdown of the normalisation process, please see <a href="https://github.com/DELON8/group-5-data-engineering-final-project/blob/main/supplementary_documentation/data_normalisation.pdf">here for documentation</a>.
 
-With the data normalised, we were then able to design our schema. 
+With the data normalised, we were then able to design our schema.
 ![Final Schema](https://user-images.githubusercontent.com/116800613/213326064-a9672af7-8e2a-4011-b455-18baea46e145.png)
 
 
@@ -116,11 +116,11 @@ With the data normalised, we were then able to design our schema.
 Although the CSV file we used for our POC had no headers, we thought about other cases that we could encounter that could potentially crash our app. For example:
 
 - We may receive a file with missing columns.
-- We may receive a file with or without headers. 
+- We may receive a file with or without headers.
 - We may receive a file with incorrect headers.
 
 After careful consideration, we came up with the following:
-- If the number of columns the extraction fails and the script outputs an error. 
+- If the number of columns the extraction fails and the script outputs an error.
 - If the number of columns is right but there are no headers. The script outputs a warning, adds the headers and extracts the data and makes it available as a pandas dataframe.
 - If the headers are present and correct, just extract the data and present it as a pandas dataframe.
 

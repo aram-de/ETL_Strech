@@ -195,14 +195,10 @@ def handler(event, context):
 
     connection = {
         "database": "NAMEOFYOURDATABASE",
-    "user": "NAME OF YOUR USER",
+        "user": "NAME OF YOUR USER",
         "password": "YOURPASSWORD",
-            "host": "YOURHOST"
-
-
+        "host": "YOURHOST",
         "port": "YOURPORT",
-
-
     }
     connecting_to_db = connect_to_database(connection)
 
